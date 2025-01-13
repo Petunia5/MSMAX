@@ -1,5 +1,6 @@
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import numpy as np
 
@@ -12,6 +13,7 @@ with open('scaler.pkl', 'rb') as scaler_file:
 
 # Initialiser l'application Flask
 app = Flask(__name__)
+CORS(app)  # Activer CORS pour gérer les requêtes depuis d'autres domaines
 
 @app.route('/')
 def home():
